@@ -31,10 +31,33 @@ void reverse(struct Array *arr){
     
 }
 
+void rightShift(struct Array *arr){
+    for (int i = arr->lenght-1; i > 0; i--)
+    {
+        arr->A[i]=arr->A[i-1];
+    }
+    
+}
+
+void leftShift(struct Array *arr){
+    for (int i = 0; i < arr->lenght-1; i++)
+    {
+        arr->A[i]=arr->A[i+1];
+    }
+    
+}
+
 int main()
 {
     struct Array arr = {{2, 3, 4, 5, 6}, 10, 5};
     reverse(&arr);
     Display(arr);
+    printf("\n");
+    rightShift(&arr);
+    Display(arr);
+    printf("\n");
+    leftShift(&arr);
+    Display(arr);
+    
     return 0;
 }
