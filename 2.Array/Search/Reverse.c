@@ -28,8 +28,7 @@ void reverse(struct Array *arr){
     {
         swap(&arr->A[i],&arr->A[j]);
     }
-    
-}
+} 
 
 void rightShift(struct Array *arr){
     for (int i = arr->lenght-1; i > 0; i--)
