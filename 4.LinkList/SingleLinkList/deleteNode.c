@@ -79,7 +79,7 @@ int main()
     int A[] = {10, 20, 30, 40, 50};
     create(A, 5);
 
-    printf("%d\n", Delete(first, 2));
+    printf("%d\n", Delete(first, 5));
     Display(first);
 
     return 0;
