@@ -72,11 +72,48 @@ int height(struct Node *root)
 }
 
 
+
+void getWidth(struct Node *root, int *count, int level)
+{
+    if (root)
+    {
+        count[level]++;
+        getWidth(root->lchild, count, level + 1);
+        getWidth(root->rchild, count, level + 1);
+    }
+}
+
+int getMax(int *count, int h)
+{
+    int max = count[0];
+    int i;
+    for (i = 0; i < h; i++)
+    {
+        if (count[i] > max)
+            max = count[i];
+    }
+    return max;
+}
+
+int width(struct Node *root)
+{
+    int h = height(root);
+    int *count = (int *)calloc(h, sizeof(int));
+    count[0] = 1;
+    int level = 0;
+    getWidth(root, count, level);
+    int max = getMax(count, h);
+    return max;
+}
 int main()
 {
     Treecreate();
-    printf("%d", count(root));
+    printf("Number of Nodes: %d", count(root));
     printf("\n");
-    printf("%d", height(root));
+    printf("Height of a tree: %d", height(root));
+    printf("\n");
+    printf("Number of leaf nodes: %d", leafCount(root));
+    printf("\n");
+    printf("Width of a tree: %d", width(root));
     return 0;
 }
