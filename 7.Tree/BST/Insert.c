@@ -53,6 +53,27 @@ void Insert(int key)
     }
 }
 
+void RecInsert(struct Node *p, int key)
+{
+    struct Node *t = NULL;
+
+    if (p == NULL)
+    {
+        t = (struct Node *)malloc(sizeof(struct Node));
+        t->data = key;
+        t->lchild = t->rchild = NULL;
+        return;
+    }
+    if (key < p->data)
+    {
+        RecInsert(p->lchild, key);
+    }
+    else if (key > p->data)
+    {
+        RecInsert(p->rchild, key);
+    }
+}
+
 void Inoreder(struct Node *p)
 {
     if (p)
