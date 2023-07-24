@@ -2,3 +2,10 @@
 
 #  ignore executable files
 *.exe
+
+# ignore compiled files
+*.o
+
+# ignore java files
+*.class
+
