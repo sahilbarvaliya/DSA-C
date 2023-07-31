@@ -1,15 +1,17 @@
-public class CeilingOfNumber {
+public class FlooringOfNumber {
     public static void main(String[] args) {
         int[] numbers = { 10, 20, 30, 40, 50 };
-        int target = 55;
+        int target = 5;
 
-        System.out.println("Ceiling of " + target + " is: " + ceiling(numbers, target));
+        System.out.println("flooring of " + target + " is: " + flooring(numbers, target));
     }
 
-    private static int ceiling(int[] numbers, int target) {
-        if(target > numbers[numbers.length-1]){
+    private static int flooring(int[] numbers, int target) {
+
+        if(target < numbers[0]){
             return -1;
         }
+
         int start = 0;
         int end = numbers.length-1;
         int mid = start - (start-end)/2;
@@ -25,6 +27,6 @@ public class CeilingOfNumber {
             mid = start - (start-end)/2;
         }
 
-        return numbers[start];
+        return numbers[start-1];
     }
 }
